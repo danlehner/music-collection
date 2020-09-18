@@ -5,7 +5,7 @@ const db = require('../models')
 
 // homepage route
 router.get('/', (req, res) => {
-  res.send('This is the collection homepage')
+  res.render('collection/index')
 })
 
 // artist show page

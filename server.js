@@ -4,9 +4,11 @@ const controllers = require('./controllers')
 
 const PORT = 3000
 
+
+app.set('view engine', 'ejs')
 // get route for homepage
 app.get('/', (req, res) => {
-  res.send('This is the homepage')
+  res.render('index')
 })
 
 app.use('/collection', controllers.collection)
