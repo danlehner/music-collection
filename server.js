@@ -9,8 +9,7 @@ app.get('/', (req, res) => {
   res.send('This is the homepage')
 })
 
-app.use('/controllers', controllers.collection)
-
+app.use('/collection', controllers.collection)
 
 // post route for homepage redirects to collection 
 
