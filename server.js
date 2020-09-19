@@ -11,9 +11,11 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+// post route for homepage redirects to collection 
+
+
 app.use('/collection', controllers.collection)
 
-// post route for homepage redirects to collection 
 
 app.listen(PORT, () => {
   console.log(`Now listening on http://localhost:${PORT}`)
