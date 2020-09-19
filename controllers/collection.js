@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
   res.render('collection/index')
 })
 
+// homepage new route
+
 // artist show page
 router.get('/:artistID', (req, res) => {
   res.send('This is the artist show page')
