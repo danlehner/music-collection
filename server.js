@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express() 
 const controllers = require('./controllers')
+const methodOverride = require('method-override')
 
 const PORT = 3000
 
@@ -10,6 +11,10 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+
+// middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // post route for homepage redirects to collection 
 
