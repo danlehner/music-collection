@@ -8,9 +8,10 @@
 </head>
 <body>
   <h1><%= artist.name %></h1>
+
   <ul>
     <h1>Albums</h1>
-  <% albums.forEach(album => { %>
+  <% artist.albums.forEach(album => { %>
     <h2>Album: <%= album.name %></h2>
     <img src="<%= album.art %>" height="400" width="400">
   <% }) %> 

@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
 })
 
 // artist show page
-router.get('/:artistID', async (req, res) => {
+router.get('/artist/:artistID', async (req, res) => {
 
   try {
     
