@@ -10,9 +10,11 @@ router.get('/', async (req, res) => {
   // * query all docuents from database
   try {
     const allAlbums = await db.Album.find({})
+    const allArtists = await db.Artist.find({})
 
     const context = {
-      albums: allAlbums
+      albums: allAlbums,
+      artists: allArtists
     }
 
     res.render('collection/index', context)
