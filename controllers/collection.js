@@ -21,14 +21,30 @@ router.get('/new', (req, res) => {
 // homepage post route
 router.post('/', async (req, res) => {
   try {
-    const createdAlbum = await db.Album.create(req.body)
-    console.log(req.body)
-    // const createdArtist = await db.Artist.findById(req.body.artist)
+    // console.log(req.body)
 
-    // createdArtist.albums.push(createdAlbum)
-    // await createdArtist.save()
+    const foundArtist = await db.Artist.findOne({ name: req.body.artist })
 
-    res.redirect('/collection')
+    if (foundArtist) {
+
+      req.body.artist = foundArtist 
+      const createdAlbum = await db.Album.create(req.body)
+      foundArtist.albums.push(createdAlbum)
+      await foundArtist.save()
+  
+      res.redirect('/collection')
+
+    } else {
+      const createdArtist = await db.Artist.create({ name: req.body.artist })
+
+      req.body.artist = createdArtist 
+      const createdAlbum = await db.Album.create(req.body)
+
+      createdArtist.albums.push(createdAlbum)
+      await createdArtist.save()
+  
+      res.redirect('/collection')
+    }
 
   } catch (error) {
     console.log(error)

@@ -7,6 +7,7 @@ const PORT = 3000
 
 
 app.set('view engine', 'ejs')
+
 // get route for homepage
 app.get('/', (req, res) => {
   res.render('index')
