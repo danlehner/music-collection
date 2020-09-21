@@ -73,8 +73,8 @@ router.get('/artist/:artistID', async (req, res) => {
 
   try {
     
-    const foundArtist = await db.Artist.findById({})
-
+    const foundArtist = await db.Artist.findById(req.params.artistID)
+    console.log(foundArtist)
     const context = {
       artist: foundArtist,
     }
