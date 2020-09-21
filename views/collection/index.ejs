@@ -8,6 +8,9 @@
 </head>
 <body>
   <h1>This is the Collection homepage</h1>
-  <h2>(this is dummy text for branch testing - delete later)</h2>
+  <% albums.forEach(album => { %>
+    <h1>Album: <%= album.name %></h1>
+    <img src="<%= album.art %>" height="400" width="400">
+  <% }) %>
 </body>
 </html>
