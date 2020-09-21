@@ -1,4 +1,5 @@
 const express = require('express')
+const { Artist } = require('../models')
 const router = express.Router() 
 
 const db = require('../models')
@@ -68,20 +69,22 @@ router.post('/', async (req, res) => {
 })
 
 // artist show page
-// router.get('/:artistID', (req, res) => {
-//   // * query data from given artist id 
-//   // * store queried document in a "context" variable
-//   res.send('This is the artist show page')
-//   // * use res.render for show artist page with context
-// })
+router.get('/artist/:artistID', async (req, res) => {
 
-// // artist edit page
-// router.get('/:artistID/edit', (req, res) => {
-//   // * query data from given artist id 
-//   // * store queried document in a "context" variable
-//   res.send('This is the artist edit page')
-//   // * use res.render for artist edit page with context
-// })
+  try {
+    
+    const foundArtist = await db.Artist.findById({})
+
+    const context = {
+      artist: foundArtist,
+    }
+
+    res.render("collection/artist-show.ejs", context);
+} catch (error) {
+    console.log(error);
+    res.send({message: "Internal Server Error"});
+}
+})
 
 // album show page
 router.get('/album/:albumID', async (req, res) => {
