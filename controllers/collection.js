@@ -15,9 +15,42 @@ router.get('/', (req, res) => {
 
 // homepage new route 
 router.get('/new', (req, res) => {
-  res.send('This is the page to add a new album')
+  res.render('collection/new.ejs')
 })
 
+// homepage post route
+router.post('/', async (req, res) => {
+  try {
+    // console.log(req.body)
+
+    const foundArtist = await db.Artist.findOne({ name: req.body.artist })
+
+    if (foundArtist) {
+
+      req.body.artist = foundArtist 
+      const createdAlbum = await db.Album.create(req.body)
+      foundArtist.albums.push(createdAlbum)
+      await foundArtist.save()
+  
+      res.redirect('/collection')
+
+    } else {
+      const createdArtist = await db.Artist.create({ name: req.body.artist })
+
+      req.body.artist = createdArtist 
+      const createdAlbum = await db.Album.create(req.body)
+
+      createdArtist.albums.push(createdAlbum)
+      await createdArtist.save()
+  
+      res.redirect('/collection')
+    }
+
+  } catch (error) {
+    console.log(error)
+    res.send({ message: 'Internal Server Error'} )
+  }
+})
 
 // artist show page
 router.get('/:artistID', (req, res) => {
