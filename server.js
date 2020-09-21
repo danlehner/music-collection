@@ -19,9 +19,11 @@ app.use(methodOverride("_method"));
 
 // post route for homepage redirects to collection 
 
-
 app.use('/collection', controllers.collection)
 
+app.use('/album', controllers.album)
+
+app.use('/artist', controllers.artist)
 
 app.listen(PORT, () => {
   console.log(`Now listening on http://localhost:${PORT}`)
