@@ -65,6 +65,28 @@ router.post('/', async (req, res) => {
   }
 })
 
+// album show page
+router.get('/:albumID', (req, res) => {
+  try {
+    const foundAlbum = db.Album.findById(req.params.albumID)
+
+    const context = {
+      album: foundAlbum 
+    } 
+
+    res.render('collection/album-show', context)
+
+  } catch (error) {
+    console.log(error)
+    res.send({ message: 'Internal Service Error'})
+  }
+})
+
+// album edit page
+router.get('/:albumID/edit', (req, res) => {
+  res.send('This is the album edit page')
+})
+
 // artist show page
 router.get('/:artistID', (req, res) => {
   // * query data from given artist id 
@@ -83,15 +105,6 @@ router.get('/:artistID/edit', (req, res) => {
 
 // artist delete
 
-// album show page
-router.get('/:albumID', (req, res) => {
-  res.send('This is the album show page')
-})
-
-// album edit page
-router.get('/:albumID/edit', (req, res) => {
-  res.send('This is the album edit page')
-})
 
 // album delete
 
