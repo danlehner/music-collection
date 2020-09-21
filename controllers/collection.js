@@ -6,11 +6,21 @@ const db = require('../models')
 /* TO-DO's with "*" in the code blocks */
 
 // homepage route
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // * query all docuents from database
-  // * store queried documents in a "context variable"
-  res.render('collection/index')
-  // * include context in render
+  try {
+    const allAlbums = await db.Album.find({})
+
+    const context = {
+      albums: allAlbums
+    }
+
+    res.render('collection/index', context)
+
+  } catch (error) {
+    console.log(error)
+    res.send( { message: 'Internal Server Error'} )
+  }
 })
 
 // homepage new route 
@@ -35,6 +45,7 @@ router.post('/', async (req, res) => {
       res.redirect('/collection')
 
     } else {
+
       const createdArtist = await db.Artist.create({ name: req.body.artist })
 
       req.body.artist = createdArtist 
