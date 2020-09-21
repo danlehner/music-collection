@@ -8,6 +8,14 @@
 </head>
 <body>
   <h1>This is the Collection homepage</h1>
-  <h2>(this is dummy text for branch testing - delete later)</h2>
+  <h1>Albums</h1>
+  <% albums.forEach(album => { %>
+    <h2>Album: <%= album.name %></h2>
+    <img src="<%= album.art %>" height="400" width="400">
+  <% }) %>
+  <h1>Artists</h1>
+  <% artists.forEach(artist => { %>
+    <h2><%= artist.name %></h2>
+  <% }) %>
 </body>
 </html>
