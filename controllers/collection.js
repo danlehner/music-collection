@@ -17,6 +17,8 @@ router.get('/', async (req, res) => {
       artists: allArtists
     }
 
+    console.log('albums', allAlbums, 'artists', allArtists)
+
     res.render('collection/index', context)
 
   } catch (error) {
@@ -66,32 +68,47 @@ router.post('/', async (req, res) => {
 })
 
 // artist show page
-router.get('/:artistID', (req, res) => {
-  // * query data from given artist id 
-  // * store queried document in a "context" variable
-  res.send('This is the artist show page')
-  // * use res.render for show artist page with context
-})
+// router.get('/:artistID', (req, res) => {
+//   // * query data from given artist id 
+//   // * store queried document in a "context" variable
+//   res.send('This is the artist show page')
+//   // * use res.render for show artist page with context
+// })
 
-// artist edit page
-router.get('/:artistID/edit', (req, res) => {
-  // * query data from given artist id 
-  // * store queried document in a "context" variable
-  res.send('This is the artist edit page')
-  // * use res.render for artist edit page with context
-})
-
-// artist delete
+// // artist edit page
+// router.get('/:artistID/edit', (req, res) => {
+//   // * query data from given artist id 
+//   // * store queried document in a "context" variable
+//   res.send('This is the artist edit page')
+//   // * use res.render for artist edit page with context
+// })
 
 // album show page
-router.get('/:albumID', (req, res) => {
-  res.send('This is the album show page')
+router.get('/album/:albumID', async (req, res) => {
+  try {
+    const foundAlbum = await db.Album.findById(req.params.albumID)
+
+    const context = {
+      album: foundAlbum 
+    } 
+
+    res.render('collection/album-show', context)
+
+  } catch (error) {
+    console.log(error)
+    res.send({ message: 'Internal Service Error'})
+  }
 })
 
 // album edit page
-router.get('/:albumID/edit', (req, res) => {
+router.get('/album/:albumID/edit', (req, res) => {
   res.send('This is the album edit page')
 })
+
+
+
+// artist delete
+
 
 // album delete
 
