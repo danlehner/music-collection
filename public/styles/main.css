@@ -4,12 +4,21 @@
   src: url(fonts/clarendon-regular.otf) format("opentype");
 }
 
+:root {
+  --red: #E22D57;
+  --tan: #F6EBE5; 
+  --purple: #462444; 
+  --green: #219A7F; 
+  --yellow: #F2F1AD; 
+}
+
 body {
-  font-family: "Clarendon Regular"
+  font-family: "Clarendon Regular"; 
+  background-color: var(--tan); 
 }
 
 nav {
-  background-color: turquoise; 
+  background-color: var(--green); 
   height: 50px; 
   display: flex; 
 }
@@ -17,4 +26,5 @@ nav {
 nav a {
   margin: 20px; 
   text-decoration: none;
+  color: var(--yellow)
 }
