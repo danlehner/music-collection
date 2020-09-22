@@ -1,0 +1,9 @@
+nav {
+  background-color: turquoise; 
+  height: 50px; 
+  display: flex; 
+}
+
+nav a {
+  margin: 20px; 
+}
