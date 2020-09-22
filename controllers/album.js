@@ -48,29 +48,21 @@ router.get('/:albumID/edit', async (req, res) => {
 // album update 
 router.put('/:albumID', async (req, res) => {
   try {
-    const foundArtist = await db.Artist.findOne({ name: req.body.artist})
 
-    if (!foundArtist) {
-       res.send({ message: "Internal Service Error"})
+      const albumData = {
+        $set: {
+          name: req.body.name, 
+          art: req.body.art
+        }
+      }
 
-    } else {
-
-      // const albumData = {
-      //   name: req.body.name, 
-      //   art: req.body.art
-      // }
-
-      req.body.artist = foundArtist._id
-      const updatedAlbum = await db.Album.findByIdAndUpdate(req.params.albumID, req.body, { new: true })
+      const updatedAlbum = await db.Album.findByIdAndUpdate(req.params.albumID, albumData, { new: true })
       res.redirect(`/album/${updatedAlbum._id}`)
+      
     }
-
-
-  } catch (error) {
-    if (error) {
+     catch (error) {
       console.log(error)
       res.send(error)
-    }
   }
 })
 
