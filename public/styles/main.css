@@ -114,8 +114,17 @@ nav a {
 .album-show__container-album-row {
   display: flex; 
 }
+
 .album-about {
   margin: 50px 20px; 
+}
+
+.album-about h2 {
+  font-size: 28px; 
+}
+
+.album-about p {
+  color: var(--yellow)
 }
 
 .action-row {
