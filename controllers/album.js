@@ -45,7 +45,28 @@ router.get('/:albumID/edit', async (req, res) => {
   }
 })
 
-// 
+// album update 
+router.put('/:albumID', async (req, res) => {
+  try {
+    const foundArtist = await db.Artist.find({ name: req.body.artist})
+
+    if (foundArtist) {
+
+      req.body.artist = foundArtist[0]._id
+      const updatedAlbum = await db.Album.findByIdAndUpdate(req.params.albumID,req.body, { new: true })
+     
+      res.redirect(`/album/${updatedAlbum._id}`)
+    } else {
+
+    }
+
+  } catch (error) {
+    if (error) {
+      console.log(error)
+      res.send(error)
+    }
+  }
+})
 
 
 module.exports = router
