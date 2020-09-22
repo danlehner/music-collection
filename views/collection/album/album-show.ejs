@@ -14,8 +14,15 @@
   <section class="album-show__container">
     <h2><%= artist.name %></h2>
     <h1>"<%= album.name %>"</h1>
+     
+    <div class="album-show__container-album-row">
+      <img src="<%= album.art %>" height="400" width="400" alt="<%= album.name %>"><br>
+      <div class="album-about">
+        <h2>About this album:</h2>
+        <p><%= album.testimony %></p>
+      </div>
+    </div>
 
-    <img src="<%= album.art %>" height="400" width="400" alt="<%= album.name %>"><br>
 
     <div class="action-row">
       <a href="/album/<%= album._id %>/edit">Edit</a>
