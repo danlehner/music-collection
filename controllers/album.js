@@ -25,10 +25,16 @@ router.get('/:albumID', async (req, res) => {
 router.get('/:albumID/edit', async (req, res) => {
 
   try {
+
     const foundAlbum = await db.Album.findById(req.params.albumID)
+    const foundArtist = await db.Artist.find({ 
+      albums: 
+      { $in: [req.params.albumID] } 
+    })
 
     const context = {
-      album: foundAlbum 
+      album: foundAlbum, 
+      artist: foundArtist[0]
     } 
 
     res.render('collection/edit', context)
@@ -38,6 +44,8 @@ router.get('/:albumID/edit', async (req, res) => {
     res.send({ message: 'Internal Service Error' })
   }
 })
+
+// 
 
 
 module.exports = router

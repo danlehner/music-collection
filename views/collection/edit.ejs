@@ -7,6 +7,12 @@
   <title>Edit</title>
 </head>
 <body>
-  <h1>Edit</h1>
+  <h1>Edit <%= album.name %></h1>
+  <form action="/album/<%= album._id %>?_method=PUT" method="POST">
+    Name: <input type="text" name="name" value="<%= album.name %>"><br>
+    Artist: <input type="text" name="artist" value="<%= artist.name %>"><br>
+    Album Art: <input type="text" name="art" value="<%= album.art %>"><br>
+    <input type="submit" value="Make changes">
+  </form>
 </body>
 </html>
