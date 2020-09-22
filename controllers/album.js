@@ -54,7 +54,8 @@ router.put('/:albumID', async (req, res) => {
       const albumData = {
         $set: {
           name: req.body.name, 
-          art: req.body.art
+          art: req.body.art, 
+          testimony: req.body.testimony
         }
       }
 
