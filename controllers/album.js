@@ -8,6 +8,8 @@ const db = require('../models')
 router.get('/:albumID', async (req, res) => {
   try {
     const foundAlbum = await db.Album.findById(req.params.albumID)
+    
+    console.log(foundAlbum._id)
 
     const context = {
       album: foundAlbum 
@@ -27,14 +29,14 @@ router.get('/:albumID/edit', async (req, res) => {
   try {
 
     const foundAlbum = await db.Album.findById(req.params.albumID)
-    const foundArtist = await db.Artist.find({ 
+    const foundArtist = await db.Artist.findOne({ 
       albums: 
       { $in: [req.params.albumID] } 
     })
 
     const context = {
       album: foundAlbum, 
-      artist: foundArtist[0]
+      artist: foundArtist
     } 
 
     res.render('collection/edit', context)
@@ -58,7 +60,7 @@ router.put('/:albumID', async (req, res) => {
 
       const updatedAlbum = await db.Album.findByIdAndUpdate(req.params.albumID, albumData, { new: true })
       res.redirect(`/album/${updatedAlbum._id}`)
-      
+
     }
      catch (error) {
       console.log(error)
