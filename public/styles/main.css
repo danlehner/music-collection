@@ -1,3 +1,13 @@
+
+@font-face {
+  font-family: "Clarendon Regular"; 
+  src: url(fonts/clarendon-regular.otf) format("opentype");
+}
+
+body {
+  font-family: "Clarendon Regular"
+}
+
 nav {
   background-color: turquoise; 
   height: 50px; 
@@ -6,4 +16,5 @@ nav {
 
 nav a {
   margin: 20px; 
+  text-decoration: none;
 }
