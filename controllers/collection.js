@@ -18,8 +18,6 @@ router.get('/', async (req, res) => {
       artists: allArtists
     }
 
-    console.log('albums', allAlbums, 'artists', allArtists)
-
     res.render('collection/index', context)
 
   } catch (error) {
@@ -36,7 +34,6 @@ router.get('/new', (req, res) => {
 // homepage post route
 router.post('/', async (req, res) => {
   try {
-    // console.log(req.body)
 
     const foundArtist = await db.Artist.findOne({ name: req.body.artist })
 
@@ -67,8 +64,6 @@ router.post('/', async (req, res) => {
     res.send({ message: 'Internal Server Error'} )
   }
 })
-
-
 
 
 module.exports = router

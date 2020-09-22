@@ -1,0 +1,157 @@
+
+/* MEYER CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END OF MEYER CSS RESET */
+
+@font-face {
+  font-family: "Clarendon Regular"; 
+  src: url(fonts/clarendon-regular.otf) format("opentype");
+}
+
+:root {
+  --red: #E22D57;
+  --tan: #F6EBE5; 
+  --purple: #462444; 
+  --green: #219A7F; 
+  --yellow: #F2F1AD; 
+}
+
+body {
+  font-family: "Clarendon Regular"; 
+  background-color: var(--tan); 
+}
+
+nav {
+  background-color: var(--green); 
+  height: 50px; 
+  display: flex; 
+  margin-bottom: 20px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0px; 
+}
+
+h1 {
+  font-size: 40px; 
+}
+
+h2 {
+  font-size: 24px; 
+}
+
+nav a {
+  margin: 20px; 
+  text-decoration: none;
+  color: var(--yellow)
+}
+
+.album-show__container {
+  margin: 50px auto; 
+  padding: 20px 40px; 
+  max-width: 80%; 
+  background-color: var(--red); 
+  color: white; 
+}
+
+.album-show__container h1 {
+  color: var(--yellow)
+}
+
+.album-show__container img {
+  margin: 30px 0; 
+}
+
+.album-show__container-album-row {
+  display: flex; 
+}
+
+.album-about {
+  margin: 50px 20px; 
+}
+
+.album-about h2 {
+  font-size: 28px; 
+}
+
+.album-about p {
+  color: var(--yellow)
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  max-width: 400px;
+}
+
+.action-row form {
+  margin: 0 20px; 
+}
+
+.action-row a {
+  font-size: 25px; 
+  text-decoration: none;
+  padding: 10px 15px; 
+  color: white; 
+  background-color: var(--green)
+}
+
+
+.action-row input {
+  font-family: "Clarendon Regular"; 
+  font-size: 25px; 
+  border: 0px; 
+  background-color: var(--purple); 
+  color: white; 
+  padding: 10px 15px; 
+}
