@@ -21,10 +21,47 @@ nav {
   background-color: var(--green); 
   height: 50px; 
   display: flex; 
+  margin-bottom: 20px; 
 }
 
 nav a {
   margin: 20px; 
   text-decoration: none;
   color: var(--yellow)
+}
+
+.album-show__container {
+  margin: 50px auto; 
+  padding: 20px 40px; 
+  max-width: 80%; 
+  background-color: var(--red); 
+  color: white; 
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  max-width: 400px;
+}
+
+.action-row form {
+  margin: 0 20px; 
+}
+
+.action-row a {
+  font-size: 25px; 
+  text-decoration: none;
+  padding: 10px 15px; 
+  color: white; 
+  background-color: var(--green)
+}
+
+
+.action-row input {
+  font-size: 25px; 
+  border: 0px; 
+  background-color: var(--purple); 
+  color: white; 
+  padding: 10px 15px; 
 }
