@@ -8,11 +8,11 @@ const db = require('../models')
 router.get('/:albumID', async (req, res) => {
   try {
     const foundAlbum = await db.Album.findById(req.params.albumID)
-    
-    console.log(foundAlbum._id)
+    const foundArtist = await db.Artist.findById(foundAlbum.artist)
 
     const context = {
-      album: foundAlbum 
+      album: foundAlbum, 
+      artist: foundArtist
     } 
 
     res.render('collection/album/album-show', context)
