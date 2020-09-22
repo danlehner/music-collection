@@ -9,8 +9,8 @@
 <body>
   <h1><%= album.name %></h1>
   <img src="<%= album.art %>" height="400" width="400" alt="<%= album.name %>"><br>
-  <a href="/collection/<%= album._id %>/edit">Edit <%= album.name %></a><br>
-  <form action="/collection/<%= album._id %>?_method=DELETE" method="POST">
+  <a href="/album/<%= album._id %>/edit">Edit <%= album.name %></a><br>
+  <form action="/album/<%= album._id %>?_method=DELETE" method="POST">
     <input type="submit" value="Delete <%= album.name %>">
   </form>
 </body>

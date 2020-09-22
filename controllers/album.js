@@ -17,13 +17,26 @@ router.get('/:albumID', async (req, res) => {
 
   } catch (error) {
     console.log(error)
-    res.send({ message: 'Internal Service Error'})
+    res.send({ message: 'Internal Service Error' })
   }
 })
 
-// album edit page
-router.get('/:albumID/edit', (req, res) => {
-  res.send('This is the album edit page')
+// album edit (form) page
+router.get('/:albumID/edit', async (req, res) => {
+
+  try {
+    const foundAlbum = await db.Album.findById(req.params.albumID)
+
+    const context = {
+      album: foundAlbum 
+    } 
+
+    res.render('collection/edit', context)
+   
+  } catch (error) {
+    console.log(error)
+    res.send({ message: 'Internal Service Error' })
+  }
 })
 
 
