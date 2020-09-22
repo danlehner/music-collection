@@ -50,21 +50,36 @@ router.put('/:albumID', async (req, res) => {
   try {
     const foundArtist = await db.Artist.find({ name: req.body.artist})
 
+    console.log('before it runs:', foundArtist)
+
     if (foundArtist) {
 
       req.body.artist = foundArtist[0]._id
       const updatedAlbum = await db.Album.findByIdAndUpdate(req.params.albumID,req.body, { new: true })
      
       res.redirect(`/album/${updatedAlbum._id}`)
-    } else {
 
-    }
+    } 
 
   } catch (error) {
     if (error) {
       console.log(error)
       res.send(error)
     }
+  }
+})
+
+// album delete
+router.delete('/:albumID', async (req, res) => {
+  try {
+    const deletedAlbum = await db.Album.findByIdAndDelete(req.params.albumID)
+    await db.Artist.findById(deletedAlbum.artist)
+    
+    res.redirect('/collection')
+
+  } catch (error) {
+    console.log(error)
+    res.send({ message: "Internal Service Error"})
   }
 })
 
