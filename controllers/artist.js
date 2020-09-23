@@ -24,8 +24,21 @@ router.get('/:artistID', (req, res) =>
 
 //album edit (form) route
 
+router.get("/:artistID/edit", async(req, res) => {
+  try {
+    const foundArtist = await db.Artist.findById(req.params.artistID)
 
+    const context = {
+      artist: foundArtist
+    }
 
+    res.render("collection/artist/artist-edit", context)
+
+} catch (error) {
+    console.log(error)
+    res.send({message: "Internal Server Error"})
+}
+})
 //artist update
 
 
