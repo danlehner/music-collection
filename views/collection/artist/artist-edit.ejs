@@ -6,6 +6,9 @@
     <title>Edit Artist</title>
 </head>
 <body>
+
+<%- include('../../partials/nav') %>
+
     <h1>Edit <%= artist.name %></h1>
   <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
     Name: <input type="text" name="name" value="<%= artist.name %>"><br>
