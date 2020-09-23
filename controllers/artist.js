@@ -40,7 +40,24 @@ router.get("/:artistID/edit", async(req, res) => {
 }
 })
 //artist update
+router.put("/:artistID", async (req, res) => {
+  try {
 
+    const artistData = {
+      $set: {
+        name: req.body.name, 
+      }
+    }
+
+    const updatedArtist = await db.Artist.findByIdAndUpdate(req.params.artistID, artistData, { new: true })
+    res.redirect(`/artist/${updatedArtist._id}`)
+
+  }
+   catch (error) {
+    console.log(error)
+    res.send(error)
+}
+})
 
 //album delete
 
