@@ -24,7 +24,9 @@
            <%= album.name %>
          </a>
        </h4>
-       <img src="<%= album.art %>" height="150" width="150">
+         <a href="/album/<%= album._id %>">
+          <img src="<%= album.art %>" height="150" width="150">
+        </a>
      </div>
    <% }) %>
 
@@ -38,7 +40,7 @@
       </h3>
     <% }) %>
   </div>
-  
+
 </section>
 
 
