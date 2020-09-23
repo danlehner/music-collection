@@ -12,7 +12,9 @@
   <ul>
     <h1>Albums</h1>
   <% artist.albums.forEach(album => { %>
-    <h2>Album: <%= album.name %></h2>
+    <a href="/album/<%= album._id %> ">
+      <h2><%= album.name %></h2>
+    </a>
     <img src="<%= album.art %>" height="400" width="400">
   <% }) %> 
 </body>
