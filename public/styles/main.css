@@ -97,13 +97,35 @@ nav a {
 }
 
 .album-container {
-  margin: 50px auto; 
+  margin: 0px auto 50px; 
   padding: 20px 40px; 
   max-width: 80%; 
   background-color: var(--red); 
   color: white; 
   display: flex; 
   flex-wrap: wrap; 
+  position: relative;
+}
+
+.album-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+}
+
+.artist-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+  background-color: white;
+  color: black; 
+  max-width: 200px; 
+  padding: 50px 50px 50px 20px; 
+  position: absolute; 
+  bottom: -35px;
+  right: -45px;
+}
+
+.artist-box h2 {
+  text-decoration: underline dotted;
 }
 
 .artist-and-album {

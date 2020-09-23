@@ -11,10 +11,11 @@
 
   <%- include('../partials/nav') %>
 
+  <div class="album-box">
+    <h1>My Collection</h1>
+    <h2>Albums</h2>
+  </div>
 
-  <h1>My Collection</h1>
-
-  <h2>Albums</h2>
   <section class="album-container">
    <% albums.forEach(album => { %>
      <div class="artist-and-album">
@@ -26,17 +27,20 @@
        <img src="<%= album.art %>" height="150" width="150">
      </div>
    <% }) %>
-  </section>
 
+   <div class="artist-box">
+    <h2>Artists</h2>
+    <% artists.forEach(artist => { %>
+      <h3>
+        <a href="/artist/<%= artist._id %>">
+          <%= artist.name %>
+        </a>
+      </h3>
+    <% }) %>
+  </div>
   
-  <h1>Artists</h1>
-  <% artists.forEach(artist => { %>
-    <h2>
-      <a href="/artist/<%= artist._id %>">
-        <%= artist.name %>
-      </a>
-    </h2>
-  <% }) %>
+</section>
+
 
 </body>
 </html>
