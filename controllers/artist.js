@@ -59,6 +59,21 @@ router.put("/:artistID", async (req, res) => {
 }
 })
 
-//album delete
+//artist delete
+router.delete("/:artistID", async (req, res) => {
+  try {
+    const deletedArtist = await db.Artist.findByIdAndDelete(req.params.artistID) 
+    await db.Album.remove({artist: deletedArtist._id})
+
+    res.redirect("/collection")
+  
+  } catch (error) {
+    console.log(error)
+    res.send({ message: "Internal Service Error"})
+  }
+
+})
+
+
 
 module.exports = router
