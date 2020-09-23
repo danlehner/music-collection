@@ -65,9 +65,10 @@ table {
   --yellow: #F2F1AD; 
 }
 
-body {
+body:not(nav) {
   font-family: "Clarendon Regular"; 
   background-color: var(--tan); 
+  margin: 10px; 
 }
 
 nav {
@@ -86,7 +87,11 @@ h1 {
 }
 
 h2 {
-  font-size: 24px; 
+  font-size: 30px; 
+}
+
+h3 {
+  font-size: 22px; 
 }
 
 nav a {
@@ -95,21 +100,66 @@ nav a {
   color: var(--yellow)
 }
 
-.album-show__container {
-  margin: 50px auto; 
+.album-container,
+.album-container-show {
+  margin: 0px auto 50px; 
   padding: 20px 40px; 
   max-width: 80%; 
   background-color: var(--red); 
   color: white; 
 }
 
-.album-show__container h1 {
+.album-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  position: relative;
+}
+
+.title-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+}
+
+.artist-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+  background-color: white;
+  color: black; 
+  max-width: 200px; 
+  padding: 50px 50px 50px 20px; 
+  position: absolute; 
+  bottom: -35px;
+  right: -45px;
+}
+
+.artist-box h2 {
+  text-decoration: underline dotted;
+}
+
+.artist-and-album {
+  margin: 10px; 
+  text-align: center;
+}
+
+.artist-and-album h4 {
+  max-width: 150px;
+  min-height: 30px;
+}
+
+.album-container h1,
+.album-container-show h1 {
   color: var(--yellow)
 }
 
-.album-show__container img {
-  margin: 30px 0; 
+.album-container a, 
+.album-container-show a {
+  text-decoration: none; 
+  color: inherit; 
 }
+
+/* .album-container img {
+  margin: 10px 0; 
+} */
 
 .album-show__container-album-row {
   display: flex; 
@@ -134,8 +184,22 @@ nav a {
   max-width: 400px;
 }
 
+#action-row-show {
+  justify-content: start;
+  margin: 20px 0; 
+}
+
 .action-row form {
   margin: 0 20px; 
+}
+
+form input, 
+form textarea {
+  margin: 10px 0; 
+}
+
+textarea {
+  min-height: 150px; 
 }
 
 .action-row a {
@@ -147,6 +211,7 @@ nav a {
 }
 
 
+.action-row-add input, 
 .action-row input {
   font-family: "Clarendon Regular"; 
   font-size: 25px; 
@@ -155,3 +220,4 @@ nav a {
   color: white; 
   padding: 10px 15px; 
 }
+

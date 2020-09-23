@@ -4,27 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../styles/main.css">
   <title>Artist</title>
 </head>
 <body>
 
   <%- include('../../partials/nav') %>
 
+<div class="title-box">
   <h1><%= artist.name %></h1>
-<a href="/artist/<%= artist._id %>/edit">Edit</a>
 
-<form action="/artist/<%= artist._id %>?_method=DELETE" method="POST">
-  <input type="submit" value="Delete">
-</form>
+  <div class="action-row" id="action-row-show">
+    <a href="/artist/<%= artist._id %>/edit">Edit</a>
+    <form action="/artist/<%= artist._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete">
+    </form>
+  </div>
+  <h1>Albums</h1>
+</div>
 
-  <ul>
-    <h1>Albums</h1>
 
+<section class="album-container">
   <% artist.albums.forEach(album => { %>
-    <a href="/album/<%= album._id %> ">
-      <h2><%= album.name %></h2>
+   <div class="artist-and-album">
+     <a href="/album/<%= album._id %>">
+       <h4>
+         <%= album.name %>
+       </h4>
+     </a>
+     <a href="/album/<%= album._id %>">
+      <img src="<%= album.art %>" height="150" width="150">
     </a>
-    <img src="<%= album.art %>" height="400" width="400">
+   </div>
   <% }) %> 
+</section>
+
+
 </body>
 </html>

@@ -11,8 +11,10 @@
 
   <%- include('../../partials/nav') %>
   
-  <section class="album-show__container">
-    <h2><%= artist.name %></h2>
+  <section class="album-container-show">
+    <a href="/artist/<%= artist._id %> ">
+      <h3><%= artist.name %></h3>
+    </a>
     <h1>"<%= album.name %>"</h1>
      
     <div class="album-show__container-album-row">

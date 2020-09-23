@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Artist</title>
-</head>
+<%- include('../../partials/head', { title: 'Edit'}) %>
 <body>
 
 <%- include('../../partials/nav') %>
 
-    <h1>Edit <%= artist.name %></h1>
-  <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
-    Name: <input type="text" name="name" value="<%= artist.name %>"><br>
-    
-    <input type="submit" value="Make changes">
-  </form>
+   
+    <div class="title-box">
+      <h1>Edit <%= artist.name %></h1>
+      <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%= artist.name %>"><br>
+        
+        <input type="submit" value="Make changes">
+      </form>
+    </div>
+
 </body>
 </html>

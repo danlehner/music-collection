@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Edit</title>
-</head>
-
+  <%- include('../partials/head', { title: 'Edit'}) %>
 <body>
 
   <%- include('../partials/nav') %>
 
-  <h1>Edit <%= album.name %></h1>
-  <form action="/album/<%= album._id %>?_method=PUT" method="POST">
-    Name: <input type="text" name="name" value="<%= album.name %>"><br>
-    Album Art: <input type="text" name="art" value="<%= album.art %>"><br>
-    About This Album: <br>
-    <textarea name="testimony" type="text" placeholder="<%= album.testimony %>"></textarea>
-    <input type="submit" value="Make changes">
-  </form>
+  <div class="title-box">
+    <h1>Edit <%= album.name %></h1>
+    <form action="/album/<%= album._id %>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%= album.name %>"><br>
+      Album Art: <input type="text" name="art" value="<%= album.art %>"><br>
+      About This Album: <br>
+      <textarea name="testimony" type="text" placeholder="<%= album.testimony %>"></textarea>
+      <input type="submit" value="Make changes">
+    </form>
+  </div>
+
 </body>
 </html>
