@@ -6,7 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Edit</title>
 </head>
+
 <body>
+
+  <%- include('../partials/nav') %>
+
   <h1>Edit <%= album.name %></h1>
   <form action="/album/<%= album._id %>?_method=PUT" method="POST">
     Name: <input type="text" name="name" value="<%= album.name %>"><br>
