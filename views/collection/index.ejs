@@ -11,16 +11,23 @@
 
   <%- include('../partials/nav') %>
 
-  <h1>This is the Collection homepage</h1>
-  <h1>Albums</h1>
-  <% albums.forEach(album => { %>
-    <h2>Album: 
-      <a href="/album/<%= album._id %>">
-        <%= album.name %>
-      </a>
-    </h2>
-    <img src="<%= album.art %>" height="400" width="400">
-  <% }) %>
+
+  <h1>My Collection</h1>
+
+  <h2>Albums</h2>
+  <section class="album-container">
+   <% albums.forEach(album => { %>
+     <div class="artist-and-album">
+       <h4>
+         <a href="/album/<%= album._id %>">
+           <%= album.name %>
+         </a>
+       </h4>
+       <img src="<%= album.art %>" height="150" width="150">
+     </div>
+   <% }) %>
+  </section>
+
   
   <h1>Artists</h1>
   <% artists.forEach(artist => { %>

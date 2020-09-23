@@ -65,9 +65,10 @@ table {
   --yellow: #F2F1AD; 
 }
 
-body {
+body:not(nav) {
   font-family: "Clarendon Regular"; 
   background-color: var(--tan); 
+  margin: 10px; 
 }
 
 nav {
@@ -86,7 +87,7 @@ h1 {
 }
 
 h2 {
-  font-size: 24px; 
+  font-size: 30px; 
 }
 
 nav a {
@@ -95,26 +96,38 @@ nav a {
   color: var(--yellow)
 }
 
-.album-show__container {
+.album-container {
   margin: 50px auto; 
   padding: 20px 40px; 
   max-width: 80%; 
   background-color: var(--red); 
   color: white; 
+  display: flex; 
+  flex-wrap: wrap; 
 }
 
-.album-show__container h1 {
+.artist-and-album {
+  margin: 10px; 
+  text-align: center;
+}
+
+.artist-and-album h4 {
+  max-width: 150px;
+  min-height: 30px;
+}
+
+.album-container h1 {
   color: var(--yellow)
 }
 
-.album-show__container a {
+.album-container a {
   text-decoration: none; 
   color: inherit; 
 }
 
-.album-show__container img {
-  margin: 30px 0; 
-}
+/* .album-container img {
+  margin: 10px 0; 
+} */
 
 .album-show__container-album-row {
   display: flex; 
