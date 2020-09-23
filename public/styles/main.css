@@ -90,18 +90,26 @@ h2 {
   font-size: 30px; 
 }
 
+h3 {
+  font-size: 22px; 
+}
+
 nav a {
   margin: 20px; 
   text-decoration: none;
   color: var(--yellow)
 }
 
-.album-container {
+.album-container,
+.album-container-show {
   margin: 0px auto 50px; 
   padding: 20px 40px; 
   max-width: 80%; 
   background-color: var(--red); 
   color: white; 
+}
+
+.album-container {
   display: flex; 
   flex-wrap: wrap; 
   position: relative;
@@ -138,11 +146,13 @@ nav a {
   min-height: 30px;
 }
 
-.album-container h1 {
+.album-container h1,
+.album-container-show h1 {
   color: var(--yellow)
 }
 
-.album-container a {
+.album-container a, 
+.album-container-show a {
   text-decoration: none; 
   color: inherit; 
 }
