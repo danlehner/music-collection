@@ -193,6 +193,15 @@ nav a {
   margin: 0 20px; 
 }
 
+form input, 
+form textarea {
+  margin: 10px 0; 
+}
+
+textarea {
+  min-height: 150px; 
+}
+
 .action-row a {
   font-size: 25px; 
   text-decoration: none;
@@ -202,6 +211,7 @@ nav a {
 }
 
 
+.action-row-add input, 
 .action-row input {
   font-family: "Clarendon Regular"; 
   font-size: 25px; 
@@ -210,3 +220,4 @@ nav a {
   color: white; 
   padding: 10px 15px; 
 }
+
