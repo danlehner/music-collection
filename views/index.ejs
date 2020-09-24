@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homepage</title>
-</head>
+<%- include('partials/head', { title: 'Welcome'}) %>
 <body>
 
   <% if(user) { %>
@@ -17,8 +12,17 @@
 
   <% } else { %>
 
-  <a href="/login">Login</a>
-  <a href="/register">Register</a>
+<div class="login-register-page">
+  <div class="title-box">
+    <h1>Welcome to our App!</h1>
+  </div>
+  
+  <section class="album-container" id="auth-box">
+    <a class="login-button" href="/login">Login</a>
+    <a class="register-button" href="/register">Register</a>
+  </section>
+</div>
+
 
    <% } %>
 </body>

@@ -115,6 +115,13 @@ nav a {
   position: relative;
 }
 
+#auth-box {
+  max-width: 200px; 
+  margin-left: 65px; 
+  display: flex;
+  flex-direction: column;
+}
+
 .title-box {
   max-width: 87%;  
   margin: 0 auto; 
@@ -184,8 +191,6 @@ nav a {
 
 .action-row {
   display: flex;
-  /* justify-content: space-around;
-  margin: 20px; */
   max-width: 400px;
 }
 
@@ -207,7 +212,8 @@ textarea {
   min-height: 150px; 
 }
 
-.action-row a {
+.action-row a,
+.register-button {
   font-size: 25px; 
   text-decoration: none;
   padding: 10px 15px; 
@@ -217,7 +223,8 @@ textarea {
 
 
 .action-row-add input, 
-.action-row input {
+.action-row input, 
+.login-button {
   font-family: "Clarendon Regular"; 
   font-size: 25px; 
   border: 0px; 
@@ -227,3 +234,11 @@ textarea {
   cursor: pointer;
 }
 
+.login-button, 
+.register-button {
+  margin: 10px; 
+}
+
+.login-register-page {
+  margin-top: 60px; 
+}
