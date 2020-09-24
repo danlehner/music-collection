@@ -1,0 +1,229 @@
+
+/* MEYER CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END OF MEYER CSS RESET */
+
+@font-face {
+  font-family: "Clarendon Regular"; 
+  src: url(fonts/clarendon-regular.otf) format("opentype");
+}
+
+:root {
+  --red: #E22D57;
+  --tan: #f5ddd0; 
+  --purple: #462444; 
+  --green: #219A7F; 
+  --yellow: #F2F1AD; 
+}
+
+body:not(nav) {
+  font-family: "Clarendon Regular"; 
+  background-color: var(--tan); 
+  /* margin: 10px;  */
+}
+
+nav {
+  background-color: var(--green); 
+  height: 50px; 
+  display: flex; 
+  margin-bottom: 20px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0px; 
+}
+
+h1 {
+  font-size: 40px; 
+}
+
+h2 {
+  font-size: 30px; 
+}
+
+h3 {
+  font-size: 22px; 
+}
+
+nav a {
+  margin: 20px; 
+  text-decoration: none;
+  color: var(--yellow)
+}
+
+.album-container,
+.album-container-show {
+  margin: 0px auto 50px; 
+  padding: 20px 40px; 
+  max-width: 80%; 
+  background-color: var(--red); 
+  color: white; 
+}
+
+.album-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  position: relative;
+}
+
+.title-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+}
+
+.artist-box {
+  max-width: 87%;  
+  margin: 0 auto; 
+  background-color: white;
+  color: black; 
+  max-width: 200px; 
+  padding: 50px 50px 50px 20px; 
+  position: absolute; 
+  bottom: -45px;
+  right: -45px;
+}
+
+.artist-box h2 {
+  text-decoration: underline dotted;
+}
+
+.artist-and-album {
+  margin: 10px; 
+  text-align: center;
+}
+
+.artist-and-album h4 {
+  max-width: 150px;
+  min-height: 30px;
+}
+
+.album-container h1,
+.album-container-show h1 {
+  color: var(--yellow)
+}
+
+.album-container a, 
+.album-container-show a {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+/* .album-container img {
+  margin: 10px 0; 
+} */
+
+.album-show__container-album-row {
+  display: flex; 
+}
+
+.album-about {
+  margin: 50px 20px; 
+}
+
+.album-about h2 {
+  font-size: 28px; 
+}
+
+.album-about p {
+  color: var(--yellow)
+}
+
+.action-row, 
+#action-row-show {
+  align-items: center; 
+}
+
+.action-row {
+  display: flex;
+  /* justify-content: space-around;
+  margin: 20px; */
+  max-width: 400px;
+}
+
+#action-row-show {
+  justify-content: start;
+  margin: 20px 0; 
+}
+
+.action-row form {
+  margin: 0 20px; 
+}
+
+form input, 
+form textarea {
+  margin: 10px 0; 
+}
+
+textarea {
+  min-height: 150px; 
+}
+
+.action-row a {
+  font-size: 25px; 
+  text-decoration: none;
+  padding: 10px 15px; 
+  color: white; 
+  background-color: var(--green)
+}
+
+
+.action-row-add input, 
+.action-row input {
+  font-family: "Clarendon Regular"; 
+  font-size: 25px; 
+  border: 0px; 
+  background-color: var(--purple); 
+  color: white; 
+  padding: 10px 15px; 
+  cursor: pointer;
+}
+

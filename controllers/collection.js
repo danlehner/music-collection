@@ -1,4 +1,5 @@
 const express = require('express')
+const { Artist } = require('../models')
 const router = express.Router() 
 
 const db = require('../models')
@@ -17,8 +18,6 @@ router.get('/', async (req, res) => {
       artists: allArtists
     }
 
-    console.log('albums', allAlbums, 'artists', allArtists)
-
     res.render('collection/index', context)
 
   } catch (error) {
@@ -35,7 +34,6 @@ router.get('/new', (req, res) => {
 // homepage post route
 router.post('/', async (req, res) => {
   try {
-    // console.log(req.body)
 
     const foundArtist = await db.Artist.findOne({ name: req.body.artist })
 
@@ -66,51 +64,6 @@ router.post('/', async (req, res) => {
     res.send({ message: 'Internal Server Error'} )
   }
 })
-
-// artist show page
-// router.get('/:artistID', (req, res) => {
-//   // * query data from given artist id 
-//   // * store queried document in a "context" variable
-//   res.send('This is the artist show page')
-//   // * use res.render for show artist page with context
-// })
-
-// // artist edit page
-// router.get('/:artistID/edit', (req, res) => {
-//   // * query data from given artist id 
-//   // * store queried document in a "context" variable
-//   res.send('This is the artist edit page')
-//   // * use res.render for artist edit page with context
-// })
-
-// album show page
-router.get('/album/:albumID', async (req, res) => {
-  try {
-    const foundAlbum = await db.Album.findById(req.params.albumID)
-
-    const context = {
-      album: foundAlbum 
-    } 
-
-    res.render('collection/album-show', context)
-
-  } catch (error) {
-    console.log(error)
-    res.send({ message: 'Internal Service Error'})
-  }
-})
-
-// album edit page
-router.get('/album/:albumID/edit', (req, res) => {
-  res.send('This is the album edit page')
-})
-
-
-
-// artist delete
-
-
-// album delete
 
 
 module.exports = router
