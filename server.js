@@ -21,6 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // post route for homepage redirects to collection 
 
+app.get('/', (req, res) => {
+  res.render('index')
+})
+
+app.use('/', controllers.auth)
+
 app.use('/collection', controllers.collection)
 
 app.use('/album', controllers.album)
