@@ -3,9 +3,10 @@ const app = express()
 const controllers = require('./controllers')
 const methodOverride = require('method-override')
 const path = require('path')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 
 const PORT = 3000
-
 
 app.set('view engine', 'ejs')
 
@@ -18,6 +19,17 @@ app.get('/', (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(session({
+  resave: false, 
+  saveUninitialized: false, 
+  secret: "Secretmusicstring", 
+  store: new MongoStore({
+    url: "mongodb://localhost:27017/music-sessions"
+  }), 
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}))
 
 // post route for homepage redirects to collection 
 
