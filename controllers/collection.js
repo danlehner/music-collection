@@ -18,6 +18,8 @@ router.get('/', async (req, res) => {
       artists: allArtists
     }
 
+    console.log(allAlbums)
+
     res.render('collection/index', context)
 
   } catch (error) {

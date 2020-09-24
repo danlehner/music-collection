@@ -17,18 +17,26 @@
   </div>
 
   <section class="album-container">
-   <% albums.forEach(album => { %>
-     <div class="artist-and-album">
-       <h4>
-         <a href="/album/<%= album._id %>">
-           <%= album.name %>
-         </a>
-       </h4>
-         <a href="/album/<%= album._id %>">
-          <img src="<%= album.art %>" height="150" width="150">
+    <% if (albums.length === 0) { %>
+      <p>
+        <a href="/collection/new">
+          Click me to add some albums!
         </a>
-     </div>
-   <% }) %>
+      </p>
+    <% } else { %> 
+      <% albums.forEach(album => { %>
+        <div class="artist-and-album">
+          <h4>
+            <a href="/album/<%= album._id %>">
+              <%= album.name %>
+            </a>
+          </h4>
+            <a href="/album/<%= album._id %>">
+             <img src="<%= album.art %>" height="150" width="150">
+           </a>
+        </div>
+      <% }) %>
+    <% } %>
 
    <div class="artist-box">
     <h2>Artists</h2>
