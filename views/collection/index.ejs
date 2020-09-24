@@ -33,11 +33,13 @@
    <div class="artist-box">
     <h2>Artists</h2>
     <% artists.forEach(artist => { %>
-      <h4>
-        <a href="/artist/<%= artist._id %>">
-          <%= artist.name %>
-        </a>
-      </h4>
+      <% if (artist.albums.length !== 0) { %>
+        <h4>
+          <a href="/artist/<%= artist._id %>">
+            <%= artist.name %>
+          </a>
+        </h4>
+      <% } %>
     <% }) %>
   </div>
 

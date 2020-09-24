@@ -73,8 +73,11 @@ router.put('/:albumID', async (req, res) => {
 router.delete('/:albumID', async (req, res) => {
   try {
     const deletedAlbum = await db.Album.findByIdAndDelete(req.params.albumID)
-    await db.Artist.findById(deletedAlbum.artist)
-    
+    const artist = await db.Artist.findById(deletedAlbum.artist)
+
+    artist.albums.remove(deletedAlbum)
+    artist.save()
+
     res.redirect('/collection')
 
   } catch (error) {

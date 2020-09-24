@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Homepage</title>
-</head>
+<%- include('partials/head', { title: 'Welcome'}) %>
 <body>
-  <h1>This is the Log in page</h1>
+
+  <% if(user) { %>
+
+    <div class="login-register-page">
+      <div class="title-box">
+        <h1>Hi, <%= user.username %>!</h1>
+      </div>
+  
+      <section class="album-container auth-box">
+        <h3><a href="/collection">View Your Collection</a></h3>
+        <form action="/logout?_method=DELETE" method="POST">
+          <input class="logout-button" type="submit" value="Logout">
+        </form>
+      </section>
+    </div>
+
+  <% } else { %>
+
+<div class="login-register-page">
+  <div class="title-box">
+    <h1>Welcome to our App!</h1>
+  </div>
+  
+  <section class="album-container auth-box">
+    <a class="login-button" href="/login">Login</a>
+    <a class="register-button" href="/register">Register</a>
+  </section>
+</div>
+
+
+   <% } %>
 </body>
 </html>
