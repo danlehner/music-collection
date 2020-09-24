@@ -59,7 +59,7 @@ table {
 
 :root {
   --red: #E22D57;
-  --tan: #F6EBE5; 
+  --tan: #f5ddd0; 
   --purple: #462444; 
   --green: #219A7F; 
   --yellow: #F2F1AD; 
@@ -68,7 +68,7 @@ table {
 body:not(nav) {
   font-family: "Clarendon Regular"; 
   background-color: var(--tan); 
-  margin: 10px; 
+  /* margin: 10px;  */
 }
 
 nav {
@@ -128,7 +128,7 @@ nav a {
   max-width: 200px; 
   padding: 50px 50px 50px 20px; 
   position: absolute; 
-  bottom: -35px;
+  bottom: -45px;
   right: -45px;
 }
 
@@ -177,10 +177,15 @@ nav a {
   color: var(--yellow)
 }
 
+.action-row, 
+#action-row-show {
+  align-items: center; 
+}
+
 .action-row {
   display: flex;
-  justify-content: space-around;
-  margin: 20px;
+  /* justify-content: space-around;
+  margin: 20px; */
   max-width: 400px;
 }
 
@@ -219,5 +224,6 @@ textarea {
   background-color: var(--purple); 
   color: white; 
   padding: 10px 15px; 
+  cursor: pointer;
 }
 

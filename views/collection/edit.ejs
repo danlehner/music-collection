@@ -8,11 +8,13 @@
   <div class="title-box">
     <h1>Edit <%= album.name %></h1>
     <form action="/album/<%= album._id %>?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%= album.name %>"><br>
-      Album Art: <input type="text" name="art" value="<%= album.art %>"><br>
+      Name: <br><input type="text" name="name" value="<%= album.name %>"><br>
+      Album Art: <br><input type="text" name="art" value="<%= album.art %>"><br>
       About This Album: <br>
-      <textarea name="testimony" type="text" placeholder="<%= album.testimony %>"></textarea>
-      <input type="submit" value="Make changes">
+      <textarea name="testimony" type="text" placeholder="<%= album.testimony %>"></textarea><br>
+      <div class="action-row">
+        <input type="submit" value="Make changes">
+      </div>
     </form>
   </div>
 
