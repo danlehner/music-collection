@@ -10,16 +10,6 @@ const PORT = 3000
 
 app.set('view engine', 'ejs')
 
-// get route for homepage
-app.get('/', (req, res) => {
-
-  const context = {
-    user: req.session.currentUser
-  }
-
-  res.render('index', context)
-})
-
 // middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
@@ -43,8 +33,14 @@ const authRequired = function(req, res, next) {
   next()
 }
 
+// get route for homepage
 app.get('/', (req, res) => {
-  res.render('index')
+
+  const context = {
+    user: req.session.currentUser
+  }
+
+  res.render('index', context)
 })
 
 app.use('/', controllers.auth)
