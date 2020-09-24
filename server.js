@@ -12,7 +12,12 @@ app.set('view engine', 'ejs')
 
 // get route for homepage
 app.get('/', (req, res) => {
-  res.render('index')
+
+  const context = {
+    user: req.session.currentUser
+  }
+
+  res.render('index', context)
 })
 
 // middleware
@@ -31,7 +36,12 @@ app.use(session({
   }
 }))
 
-// post route for homepage redirects to collection 
+const authRequired = function(req, res, next) {
+  if(!req.session.currentUser) {
+    return res.redirect("/login")
+  }
+  next()
+}
 
 app.get('/', (req, res) => {
   res.render('index')
@@ -39,11 +49,11 @@ app.get('/', (req, res) => {
 
 app.use('/', controllers.auth)
 
-app.use('/collection', controllers.collection)
+app.use('/collection', authRequired, controllers.collection)
 
-app.use('/album', controllers.album)
+app.use('/album', authRequired, controllers.album)
 
-app.use('/artist', controllers.artist)
+app.use('/artist', authRequired, controllers.artist)
 
 app.listen(PORT, () => {
   console.log(`Now listening on http://localhost:${PORT}`)
