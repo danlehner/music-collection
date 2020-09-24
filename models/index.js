@@ -23,4 +23,5 @@ mongoose.connection.on("disconnect", function (event) {
 module.exports = {
   Artist: require("./Artist"),
   Album: require("./Album"),
+  User: require("./User")
 };
