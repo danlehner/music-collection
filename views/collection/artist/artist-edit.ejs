@@ -9,9 +9,10 @@
     <div class="title-box">
       <h1>Edit <%= artist.name %></h1>
       <form action="/artist/<%= artist._id %>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%= artist.name %>"><br>
-        
-        <input type="submit" value="Make changes">
+        Name: <br><input type="text" name="name" value="<%= artist.name %>"><br>
+        <div class="action-row">
+          <input type="submit" value="Make changes">
+        </div>
       </form>
     </div>
 
