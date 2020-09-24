@@ -38,4 +38,32 @@ router.get("/login", (req, res) => {
   res.render("auth/login")
 })
 
+// login authentication 
+router.post("/login", async (req, res) => {
+  try {
+    const foundUser = await db.User.findOne({ email: req.body.email })
+
+    if (!foundUser) {
+      return res.send({ message: "Email or password is incorrect"})
+    }
+
+    const match = await bcrypt.compare(req.body.password, foundUser.password)
+
+    if(!match) {
+      return res.send({ message: "Email or password is incorrect" })
+    }
+
+    req.session.currentUser = {
+      username: foundUser.username, 
+      id: foundUser._id
+    }
+
+    res.redirect('/collection')
+
+  } catch (error) {
+    console.log(error)
+    res.send({ message: "Internal Server Error"})
+  }
+})
+
 module.exports = router
