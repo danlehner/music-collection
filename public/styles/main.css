@@ -94,10 +94,18 @@ h3 {
   font-size: 22px; 
 }
 
-nav a {
+nav a, 
+#nav-logout {
   margin: 20px; 
   text-decoration: none;
   color: var(--yellow)
+}
+
+#nav-logout {
+  background-color: var(--green); 
+  margin-top: 15px;
+  font-size: 20px; 
+  padding: 0; 
 }
 
 .album-container,
@@ -118,6 +126,13 @@ nav a {
 .title-box {
   max-width: 87%;  
   margin: 0 auto; 
+}
+
+.auth-box {
+  max-width: 250px; 
+  margin-left: 65px; 
+  display: flex;
+  flex-direction: column;
 }
 
 .artist-box {
@@ -184,14 +199,16 @@ nav a {
 
 .action-row {
   display: flex;
-  /* justify-content: space-around;
-  margin: 20px; */
   max-width: 400px;
 }
 
 #action-row-show {
   justify-content: start;
   margin: 20px 0; 
+}
+
+form {
+  font-size: 20px; 
 }
 
 .action-row form {
@@ -207,7 +224,9 @@ textarea {
   min-height: 150px; 
 }
 
-.action-row a {
+.action-row a,
+.register-button, 
+.auth-box h3 {
   font-size: 25px; 
   text-decoration: none;
   padding: 10px 15px; 
@@ -217,7 +236,10 @@ textarea {
 
 
 .action-row-add input, 
-.action-row input {
+.action-row input, 
+.login-button, 
+.logout-button, 
+.auth-box form input[type="submit"] {
   font-family: "Clarendon Regular"; 
   font-size: 25px; 
   border: 0px; 
@@ -227,3 +249,11 @@ textarea {
   cursor: pointer;
 }
 
+.login-button, 
+.register-button {
+  margin: 10px; 
+}
+
+.login-register-page {
+  margin-top: 60px; 
+}
