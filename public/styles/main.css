@@ -94,10 +94,18 @@ h3 {
   font-size: 22px; 
 }
 
-nav a {
+nav a, 
+#nav-logout {
   margin: 20px; 
   text-decoration: none;
   color: var(--yellow)
+}
+
+#nav-logout {
+  background-color: var(--green); 
+  margin-top: 15px;
+  font-size: 20px; 
+  padding: 0; 
 }
 
 .album-container,
