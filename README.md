@@ -4,6 +4,10 @@ While learning how to build a full stack web application from the ground up, two
 
 Technologies Used
 
+- html
+- css
+- javascript
+- Node.js
 - Express
 - MongoDB
 - Mongoose
@@ -21,6 +25,10 @@ Existing Features
 
 Planned Features
 
-- a wishlist catagory
+- a wishlist category
 - ability to search artist, album, and album art within app
+- query through an api
+
+![GitHub Logo](Screenshot%20from%202020-09-25%2000-35-31.png)
+![GitHub Logo](Screenshot%20from%202020-09-25%2000-35-55.png)
 
